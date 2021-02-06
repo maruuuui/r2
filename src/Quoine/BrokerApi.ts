@@ -16,10 +16,10 @@ import {
 import * as jwt from 'jsonwebtoken';
 
 export default class BrokerApi {
-  private readonly baseUrl = 'https://api.quoine.com';
+  private readonly baseUrl = 'https://api.liquid.com';
   private readonly webClient: WebClient = new WebClient(this.baseUrl);
 
-  constructor(private readonly key: string, private readonly secret: string) {}
+  constructor(private readonly key: string, private readonly secret: string) { }
 
   async sendOrder(request: SendOrderRequest): Promise<SendOrderResponse> {
     const path = '/orders/';
