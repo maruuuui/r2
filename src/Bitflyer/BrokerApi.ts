@@ -17,10 +17,10 @@ import {
 } from './types';
 
 export default class BrokerApi {
-  private readonly baseUrl = 'https://api.bitflyer.jp';
+  private readonly baseUrl = 'https://api.bitflyer.com';
   private readonly webClient: WebClient = new WebClient(this.baseUrl);
 
-  constructor(private readonly key: string, private readonly secret: string) {}
+  constructor(private readonly key: string, private readonly secret: string) { }
 
   async sendChildOrder(request: SendChildOrderRequest): Promise<SendChildOrderResponse> {
     const path = '/v1/me/sendchildorder';
