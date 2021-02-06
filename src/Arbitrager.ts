@@ -17,6 +17,7 @@ export default class Arbitrager {
   private shouldStop: boolean = false;
   status: string = 'Init';
   private handlerRef: (quotes: Quote[]) => Promise<void>;
+  private opportunityCount = 0
 
   constructor(
     private readonly quoteAggregator: QuoteAggregator,
@@ -61,9 +62,11 @@ export default class Arbitrager {
   private async arbitrage(quotes: Quote[]): Promise<void> {
     this.status = 'Arbitraging';
     const searchResult = await this.opportunitySearcher.search(quotes);
+    this.log.info(`裁定機会：${this.opportunityCount}回`)
     if (!searchResult.found) {
       return;
     }
+    this.opportunityCount += 1
 
     try {
       await this.pairTrader.trade(searchResult.spreadAnalysisResult, searchResult.closable);
