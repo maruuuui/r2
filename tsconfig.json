@@ -11,11 +11,14 @@
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
-    "types": ["reflect-metadata"],
+    "types": [
+      "reflect-metadata"
+    ],
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "pretty": true
+    "pretty": true,
+    "skipLibCheck": true
   },
   "files": [
     "./node_modules/@types/node/index.d.ts"
